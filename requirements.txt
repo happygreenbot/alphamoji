@@ -6,7 +6,6 @@ backcall
 beautifulsoup4
 bleach
 blinker
-Brlapi
 cffi
 chardet
 checkbox-support
