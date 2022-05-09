@@ -9,7 +9,6 @@ blinker
 cffi
 chardet
 checkbox-support
-command-not-found
 cryptography
 dataclasses
 decorator
