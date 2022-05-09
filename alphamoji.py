@@ -20,6 +20,8 @@ from config.config import *
 
 import time
 
+import shutil
+
 class AlphaMoji:
 
     def __init__(self, img_path) -> None:
@@ -127,7 +129,7 @@ def process_alphamoji_callback(uploaded_file):
 
     st.text(obj.write_to_string())
 
-    obj.print_to_file("results/chester2_5_large.txt")
+#     obj.print_to_file("results/chester2_5_large.txt")
 
     return obj.write_to_string()
 
@@ -139,7 +141,11 @@ if __name__ == "__main__":
 
     st.title('AlphaMoji :\'\)')
     st.subheader('Convert your favorite pictures into quirky number matrices! \(inspired by Youtube comment art ofc \)')
-
+    
+    if os.path.isdir("temp"):
+        shutil.rmtree("temp")
+    os.mkdir("temp")
+        
     uploaded_file = st.file_uploader("Choose a file")
 
     if 'output_string' not in st.session_state:
