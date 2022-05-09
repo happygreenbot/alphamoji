@@ -90,7 +90,7 @@ class AlphaMoji:
     #     for i in range(final_array_reshaped.shape[0]):
     #         result.append(model.predict_classes(final_array_reshaped[i]))
         print(self.model.predict(final_array_reshaped)[0])
-        self.alphamoji = np.array(self.model.predict_classes(final_array_reshaped)).reshape(result_dim)
+        self.alphamoji = np.array(np.argmax(self.model.predict(final_array_reshaped), axis=-1)).reshape(result_dim)
 
     def load_mnist_model(self):
         self.model = load_model(MODEL_PATH)
